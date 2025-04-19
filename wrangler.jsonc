@@ -1,0 +1,11 @@
+{
+  "name": "pascoa",
+  "main": "worker.js",
+  "compatibility_date": "2024-03-31",
+  "routes": [
+    {
+      "pattern": "*/*",
+      "zone_name": "pascoa.erickreis.com"
+    }
+  ]
+}
