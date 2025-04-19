@@ -4,7 +4,7 @@ Este é um projeto especial de Páscoa que cria uma divertida caça ao tesouro d
 
 ## Exemplo de Pista
 
-![Pista 1](pista_1.PNG)
+![Pista 1](bg/pista_1.PNG)
 
 A primeira pista leva os participantes a uma jornada pelo jardim:
 
