@@ -91,7 +91,7 @@ toalhas
 O lugar onde todos se limpam
 guarda sua PENÚLTIMA surpresa.`,
     
-    12: `🎯 PISTA 12 (Plot twist — final é o começo):
+    12: `🎯 PISTA 12:
 Você chegou ao fim
 mas será mesmo
 
@@ -309,6 +309,23 @@ export default {
             align-items: center;
             justify-content: center;
         }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 25px;
+            margin: 20px 0;
+            height: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #FF6B6B;
+            border-radius: 25px;
+            transition: width 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -330,12 +347,12 @@ export default {
         </div>
         <div id="errorMessage" class="error-message">Senha incorreta! Tente novamente.</div>
         <div id="successMessage" class="success-message">Senha correta! Redirecionando para próxima pista...</div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
     </div>
 
-    <div class="gif">
-        <dotlottie-player src="https://lottie.host/c7f68032-3e7d-4255-94bb-1248f75b0fba/w1HkAXzOLm.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay>
-        </dotlottie-player>
-    </div>  
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <script>
         // Dados das pistas
@@ -391,6 +408,17 @@ export default {
             document.getElementById('errorMessage').style.display = 'none';
             document.getElementById('successMessage').style.display = 'none';
             document.getElementById('passwordInput').value = '';
+            
+            // Update progress bar
+            const progressBar = document.getElementById('progressBar');
+            const progressPercentage = ((clueNum - 1) / 11) * 100; // 11 because there are 12 clues (0 to 11)
+            progressBar.style.width = progressPercentage + '%';
+
+            // Calculate color gradient from red to green
+            const red = Math.round(255 * (1 - (clueNum - 1) / 11));
+            const green = Math.round(255 * ((clueNum - 1) / 11));
+            const color = `rgb(${red}, ${green}, 0)`;
+            progressBar.style.backgroundColor = color;
             
             sendClueWebhook(clueNum, 'view');
         }
