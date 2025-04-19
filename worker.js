@@ -101,33 +101,33 @@ o verdadeiro TESOURO.`
 };
 
 const passwords = {
-    1: "HORTA2024",
-    2: "CHURRAS21",
-    3: "FOGO1234",
-    4: "MAQUINA55",
-    5: "BANHEIRO3",
-    6: "QUARTO123",
-    7: "SALA4567",
-    8: "COZINHA9",
-    9: "NEON2024",
-    10: "VAZIO123",
-    11: "ESPELHO7",
-    12: "INICIO00"
+    1: "bem vindos",
+    2: "comida",
+    3: "fogo",
+    4: "massa",
+    5: "xixi",
+    6: "quarto",
+    7: "sala",
+    8: "cozinha",
+    9: "neon",
+    10: "vazio",
+    11: "espejo",
+    12: "inicio"
 };
 
 const clueAudios = {
     1: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_1.mp3",
-    2: "URL_DO_AUDIO_PISTA_2.mp3",
-    3: "URL_DO_AUDIO_PISTA_3.mp3",
-    4: "URL_DO_AUDIO_PISTA_4.mp3",
-    5: "URL_DO_AUDIO_PISTA_5.mp3",
-    6: "URL_DO_AUDIO_PISTA_6.mp3",
-    7: "URL_DO_AUDIO_PISTA_7.mp3",
-    8: "URL_DO_AUDIO_PISTA_8.mp3",
-    9: "URL_DO_AUDIO_PISTA_9.mp3",
-    10: "URL_DO_AUDIO_PISTA_10.mp3",
-    11: "URL_DO_AUDIO_PISTA_11.mp3",
-    12: "URL_DO_AUDIO_PISTA_12.mp3"
+    2: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_2.mp3",
+    3: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_3.mp3",
+    4: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_4.mp3",
+    5: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_5.mp3",
+    6: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_6.mp3",  
+    7: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_7.mp3",
+    8: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_8.mp3",
+    9: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_9.mp3",
+    10: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_10.mp3",
+    11: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_11.mp3",
+    12: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_12.mp3"
 };
 
 // Função principal do worker
@@ -330,6 +330,9 @@ export default {
 </head>
 <body>
     <div class="card">
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
         <div class="treasure-icon">🗺️</div>
         <div class="clue-number">Pista <span id="currentClue">0</span> de 12</div>
         <div class="clue" id="clueText"></div>
@@ -348,9 +351,6 @@ export default {
         <div id="errorMessage" class="error-message">Senha incorreta! Tente novamente.</div>
         <div id="successMessage" class="success-message">Senha correta! Redirecionando para próxima pista...</div>
 
-        <div class="progress-bar-container">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
     </div>
 
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
@@ -414,11 +414,22 @@ export default {
             const progressPercentage = ((clueNum - 1) / 11) * 100; // 11 because there are 12 clues (0 to 11)
             progressBar.style.width = progressPercentage + '%';
 
-            // Calculate color gradient from red to green
-            const red = Math.round(255 * (1 - (clueNum - 1) / 11));
-            const green = Math.round(255 * ((clueNum - 1) / 11));
-            const color = `rgb(${red}, ${green}, 0)`;
-            progressBar.style.backgroundColor = color;
+            // Predefined array of colors from red to green
+            const colors = [
+                '#FF0000', // Red
+                '#FF3300',
+                '#FF6600',
+                '#FF9900',
+                '#FFCC00',
+                '#FFFF00',
+                '#CCFF00',
+                '#99FF00',
+                '#66FF00',
+                '#33FF00',
+                '#00FF00'  // Green
+            ];
+            const colorIndex = Math.min(clueNum - 1, colors.length - 1);
+            progressBar.style.backgroundColor = colors[colorIndex];
             
             sendClueWebhook(clueNum, 'view');
         }
