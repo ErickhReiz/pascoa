@@ -197,104 +197,109 @@
         <div id="successMessage" class="success-message">Senha correta! Redirecionando para próxima pista...</div>
     </div>
 
-    <div class="gif">
-        <dotlottie-player src="https://lottie.host/c7f68032-3e7d-4255-94bb-1248f75b0fba/w1HkAXzOLm.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay>
-
-        </dotlottie-player>
-    </div>  
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <script>
         const clues = {
             1: `🎯 PISTA 1 (Início):
-Nem tudo que é DOCE está na boca...
-...mas o primeiro passo...
-está onde a comida começa a brotar.
-
-Vá onde se PLANTA...
-talvez lá... você PLANTE a sorte.
-
-Entre limões e maracujás...
-...algo cresce.
-
-Siga o verde.
-Ele pode te levar... ao começo de tudo.`,
+        Nem tudo que é DOCE está na boca.
+        Mas o primeiro passo
+        está onde a comida começa a brotar.
+        
+        Vá onde se PLANTA
+        talvez lá você PLANTE a sorte.
+        
+        Entre limões e maracujás
+        algo cresce.
+        
+        Siga o verde.
+        Ele pode te levar ao começo de tudo.`,
+            
             2: `🎯 PISTA 2:
-Tão doce quanto um BOLO...
-é o lugar que um dia queimava carvão...
-...mas agora só tem saudade do churrasco.
-
-Você procura MEMÓRIAS.
-E não fumaça.`,
+        Tão doce quanto um BOLO
+        é o lugar que um dia queimava carvão
+        mas agora só tem saudade do churrasco.
+        
+        Você procura MEMÓRIAS.
+        E não fumaça.`,
+            
             3: `🎯 PISTA 3:
-Três RONCOS diferentes...
-mas só um acelera no silêncio.
-
-Duas sombras grandes...
-e uma menor... que corre com mais pressa.
-
-Olhe onde os motores descansam.
-...mas não se distraia com o brilho.
-
-A pista está perto...
-...de quem anda rápido até parado.0`,
-
-4: `🎯 PISTA 4:
-De FORA pra DENTRO...
-...agora você ENTRA.
-
-Onde MÁQUINAS fazem barulho...
-talvez a próxima pista RONQUE!`,
+        Três RONCOS diferentes
+        mas só um acelera no silêncio.
+        
+        Duas sombras grandes
+        e uma menor que corre com mais pressa.
+        
+        Olhe onde os motores descansam.
+        Mas não se distraia com o brilho.
+        
+        A pista está perto
+        de quem anda rápido até parado.`,
+            
+            4: `🎯 PISTA 4:
+        De FORA pra DENTRO
+        agora você ENTRA.
+        
+        Onde MÁQUINAS fazem barulho
+        talvez a próxima pista RONQUE.`,
+            
             5: `🎯 PISTA 5:
-Banho ninguém toma aqui...
-...mas AQUI tem pista.
-
-Dos TRÊS irmãos banheiros desta casa...
-ache o que fica mais SOZINHO.`,
+        Banho ninguém toma aqui
+        mas AQUI tem pista.
+        
+        Dos TRÊS irmãos banheiros desta casa
+        ache o que fica mais SOZINHO.`,
+            
             6: `🎯 PISTA 6:
-Agora é hora de DESCANSAR.
-
-Mas só UM dos dois...
-tem janelas voltadas pro SOL da tarde.
-
-Oeste... é pra lá que ele se põe.`,
+        Agora é hora de DESCANSAR.
+        
+        Mas só UM dos dois
+        tem janelas voltadas pro SOL da tarde.
+        
+        Oeste é pra lá que ele se põe.`,
+            
             7: `🎯 PISTA 7:
-Sente-se... e ASSISTA.
-Mesmo que não tenha TV.
-
-O próximo DOCE está onde todos param...
-...pra conversar.`,
+        Sente-se e ASSISTA.
+        Mesmo que não tenha TV.
+        
+        O próximo DOCE está onde todos param
+        pra conversar.`,
+            
             8: `🎯 PISTA 8:
-Se uma sala é pra VER...
-a outra é pra FAZER.
-
-Vá onde a comida se cria.
-Mas agora... dentro da segunda casa.`,
+        Se uma sala é pra VER
+        a outra é pra FAZER.
+        
+        Vá onde a comida se cria.
+        Mas agora dentro da segunda casa.`,
+            
             9: `🎯 PISTA 9:
-A trilha volta pra casa vizinha.
-
-Vá até o quarto onde jogam com a LUZ...
-o que brilha em NEON.`,
+        A trilha volta pra casa vizinha.
+        
+        Vá até o quarto onde jogam com a LUZ
+        o que brilha em NEON.`,
+            
             10: `🎯 PISTA 10:
-Quem DORME, sonha com doces...
-
-Mas um dos quartos está VAZIO...
-...ou será que está cheio de pistas?`,
-            11: `�� PISTA 11:
-Espelhos...
-toalhas...
-água caindo...
-
-O lugar onde todos se limpam...
-guarda sua PENÚLTIMA surpresa.`,
-            12: `🎯 PISTA 12 (Plot twist — final é o começo!):
-Você chegou ao fim...
-...mas será mesmo?
-
-VOLTE AO INÍCIO!
-Lá está...
-o verdadeiro TESOURO.`
+        Quem DORME, sonha com doces.
+        
+        Mas um dos quartos está VAZIO
+        ou será que está cheio de pistas.`,
+            
+            11: `🎯 PISTA 11:
+        Espelhos
+        toalhas
+        água caindo
+        
+        O lugar onde todos se limpam
+        guarda sua PENÚLTIMA surpresa.`,
+            
+            12: `🎯 PISTA 12 (Plot twist — final é o começo):
+        Você chegou ao fim
+        mas será mesmo
+        
+        VOLTE AO INÍCIO
+        Lá está
+        o verdadeiro TESOURO.`
         };
-
+        
         // Senhas para cada pista (hash simples)
         const passwords = {
             1: "HORTA2024",
@@ -312,7 +317,7 @@ o verdadeiro TESOURO.`
         };
 
         const clueAudios = {
-            1: "URL_DO_AUDIO_PISTA_1.mp3",
+            1: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_1.mp3",
             2: "URL_DO_AUDIO_PISTA_2.mp3",
             3: "URL_DO_AUDIO_PISTA_3.mp3",
             4: "URL_DO_AUDIO_PISTA_4.mp3",
