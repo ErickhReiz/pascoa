@@ -359,7 +359,7 @@ export default {
         const clues = ${JSON.stringify(clues, null, 2)};
         const passwords = ${JSON.stringify(passwords)};
         const clueAudios = ${JSON.stringify(clueAudios)};
-
+        console.log(passwords)
         // Funções
         function getUrlParameter(name) {
             name = name.replace(/[\\[]/, '\\\\[').replace(/[\\]]/, '\\\\]');
@@ -439,7 +439,11 @@ export default {
             const inputPassword = document.getElementById('passwordInput').value.trim().toUpperCase();
             const correctPassword = passwords[currentClue];
 
-            if (inputPassword === correctPassword) {
+            console.log('Senha digitada:', inputPassword);
+            console.log('Senha correta:', correctPassword);
+            console.log('São iguais?', inputPassword === correctPassword);
+
+            if (inputPassword.toLowerCase() === correctPassword) {
                 document.getElementById('successMessage').style.display = 'block';
                 document.getElementById('errorMessage').style.display = 'none';
                 
