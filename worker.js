@@ -101,7 +101,7 @@ o verdadeiro TESOURO.`
 };
 
 const passwords = {
-    1: "bem vindos",
+    1: "maracuja",
     2: "comida",
     3: "fogo",
     4: "massa",
