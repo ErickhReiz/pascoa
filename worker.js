@@ -8,11 +8,8 @@ está onde a comida começa a brotar.
 Vá onde se PLANTA
 talvez lá você PLANTE a sorte.
 
-Entre limões e maracujás
-algo cresce.
-
-Siga o verde.
-Ele pode te levar ao começo de tudo.`,
+Entre as flores rosas e maracujás
+algo cresce.`,
     
     2: `🎯 PISTA 2:
 Tão doce quanto um BOLO
@@ -23,12 +20,6 @@ Você procura MEMÓRIAS.
 E não fumaça.`,
     
     3: `🎯 PISTA 3:
-Três RONCOS diferentes
-mas só um acelera no silêncio.
-
-Duas sombras grandes
-e uma menor que corre com mais pressa.
-
 Olhe onde os motores descansam.
 Mas não se distraia com o brilho.
 
@@ -46,73 +37,60 @@ talvez a próxima pista RONQUE.`,
 Banho ninguém toma aqui
 mas AQUI tem pista.
 
-Dos TRÊS irmãos banheiros desta casa
+Dos TRÊS  banheiros desta casa
 ache o que fica mais SOZINHO.`,
     
     6: `🎯 PISTA 6:
-Agora é hora de DESCANSAR.
+Agora é hora de DESCANSAR
 
-Mas só UM dos dois
-tem janelas voltadas pro SOL da tarde.
+Entre a lavanderia e o banheiro
+o quadro você encontrará
 
-Oeste é pra lá que ele se põe.`,
+Mas não olhe de longe
+o que procura está por trás da imagem`,
     
     7: `🎯 PISTA 7:
 Sente-se e ASSISTA.
-Mesmo que não tenha TV.
+Subindo degrals a pista voce vai achar.
 
-O próximo DOCE está onde todos param
-pra conversar.`,
+Em video a senha verá`,
     
     8: `🎯 PISTA 8:
 Se uma sala é pra VER
 a outra é pra FAZER.
 
-Vá onde a comida se cria.
-Mas agora dentro da segunda casa.`,
+Vá onde a comida se guarda.`,
     
     9: `🎯 PISTA 9:
 A trilha volta pra casa vizinha.
 
-Vá até o quarto onde jogam com a LUZ
-o que brilha em NEON.`,
+Descendo rolando voce encontra o caramelo
+
+Junto à giselma ela revelará o mistério.`,
     
     10: `🎯 PISTA 10:
-Quem DORME, sonha com doces.
-
-Mas um dos quartos está VAZIO
-ou será que está cheio de pistas.`,
+Quem DORME lá, sonha com gatos...
+um gato espanhol em breve terá um irmão`, 
     
-    11: `🎯 PISTA 11:
-Espelhos
-toalhas
-água caindo
+    11: `Acabou?
+voce chegou fim?
+ou apenas comecamos??
 
-O lugar onde todos se limpam
-guarda sua PENÚLTIMA surpresa.`,
-    
-    12: `🎯 PISTA 12:
-Você chegou ao fim
-mas será mesmo
-
-VOLTE AO INÍCIO
-Lá está
-o verdadeiro TESOURO.`
+volte ao inicio, não 
+é gelado mas está mantido no cooler`, 
 };
 
 const passwords = {
     1: "maracuja",
-    2: "comida",
+    2: "carne",
     3: "fogo",
     4: "massa",
     5: "xixi",
-    6: "quarto",
-    7: "sala",
-    8: "cozinha",
-    9: "neon",
-    10: "vazio",
-    11: "espejo",
-    12: "inicio"
+    6: "cama",
+    7: "roblox",
+    8: "marmita",
+    9: "moranaga",
+    10: "pastel"
 };
 
 const clueAudios = {
@@ -126,8 +104,7 @@ const clueAudios = {
     8: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_8.mp3",
     9: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_9.mp3",
     10: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_10.mp3",
-    11: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_11.mp3",
-    12: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_12.mp3"
+    11: "https://github.com/ErickhReiz/pascoa/raw/refs/heads/master/audios/pista_11.mp3"
 };
 
 // Função principal do worker
@@ -326,6 +303,44 @@ export default {
             border-radius: 25px;
             transition: width 0.3s ease;
         }
+
+        /* Estilos para o modal */
+        .modal {
+            display: none; /* Oculto por padrão */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -334,8 +349,10 @@ export default {
             <div class="progress-bar" id="progressBar"></div>
         </div>
         <div class="treasure-icon">🗺️</div>
-        <div class="clue-number">Pista <span id="currentClue">0</span> de 12</div>
+        <div class="clue-number">Pista <span id="currentClue">0</span> de 10</div>
         <div class="clue" id="clueText"></div>
+
+        <button id="playAudioButton" class="next-button">Ouvir Diga</button>
         
         <div class="audio-container">
             <audio id="clueAudio" class="audio-player" controls>
@@ -351,6 +368,19 @@ export default {
         <div id="errorMessage" class="error-message">Senha incorreta! Tente novamente.</div>
         <div id="successMessage" class="success-message">Senha correta! Redirecionando para próxima pista...</div>
 
+
+    </div>
+
+    <!-- Adicione este HTML dentro do <body> -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Parabéns!</h2>
+            <p>Você acertou a senha!</p>
+            <div class="progress-bar-container" style="margin-top: 20px;">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
     </div>
 
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
@@ -397,10 +427,27 @@ export default {
             
             const audioPlayer = document.getElementById('clueAudio');
             const audioSource = document.getElementById('audioSource');
+            const playAudioButton = document.getElementById('playAudioButton');
+
             if (clueAudios[clueNum]) {
                 audioSource.src = clueAudios[clueNum];
                 audioPlayer.load();
                 audioPlayer.style.display = 'block';
+
+                // Hide the button initially
+                playAudioButton.style.display = 'none';
+
+                // Listen for the canplay event to ensure the audio is ready
+                audioPlayer.addEventListener('canplay', () => {
+                    // Show the button for user interaction
+                    playAudioButton.style.display = 'block';
+
+                    playAudioButton.addEventListener('click', () => {
+                        audioPlayer.play().catch(error => {
+                            console.error('Autoplay failed:', error);
+                        });
+                    });
+                });
             } else {
                 audioPlayer.style.display = 'none';
             }
@@ -434,22 +481,33 @@ export default {
             sendClueWebhook(clueNum, 'view');
         }
 
+        // Função para abrir o modal
+        function openModal() {
+            document.getElementById('successModal').style.display = 'block';
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        // Atualize a função checkPassword
         async function checkPassword() {
             const currentClue = parseInt(getUrlParameter('pista')) || 1;
             const inputPassword = document.getElementById('passwordInput').value.trim().toUpperCase();
             const correctPassword = passwords[currentClue];
 
-            console.log('Senha digitada:', inputPassword);
-            console.log('Senha correta:', correctPassword);
-            console.log('São iguais?', inputPassword === correctPassword);
-
             if (inputPassword.toLowerCase() === correctPassword) {
                 document.getElementById('successMessage').style.display = 'block';
                 document.getElementById('errorMessage').style.display = 'none';
                 
+                // Abra o modal
+                openModal();
+
                 await sendClueWebhook(currentClue, 'solved');
 
                 setTimeout(() => {
+                    closeModal(); // Feche o modal antes de redirecionar
                     if (currentClue < 12) {
                         window.location.href = \`?pista=\${currentClue + 1}\`;
                     } else {

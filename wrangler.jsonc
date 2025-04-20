@@ -1,5 +1,10 @@
 {
   "name": "pascoa",
   "main": "worker.js",
-  "compatibility_date": "2024-03-31"
+  "compatibility_date": "2024-03-31",
+  "vars": {
+    "WEBHOOK_URL": "",
+    "API_KEY": ""
+  }
 }
+
