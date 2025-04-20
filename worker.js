@@ -89,7 +89,7 @@ const passwords = {
     6: "cama",
     7: "roblox",
     8: "marmita",
-    9: "moranaga",
+    9: "moranga",
     10: "pastel"
 };
 

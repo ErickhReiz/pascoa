@@ -1,0 +1,21 @@
+1: `Nem tudo que é DOCE está na boca. Mas o primeiro passo está onde a comida começa a brotar. Vá onde se PLANTA talvez lá você PLANTE a sorte. Entre as flores rosas e maracujás algo cresce.`,
+    
+2: `Tão doce quanto um BOLO é o lugar que um dia queimava carvão mas agora só tem saudade do churrasco. Você procura MEMÓRIAS. E não fumaça.`,
+
+3: `Olhe onde os motores descansam. Mas não se distraia com o brilho. A pista está perto de quem anda rápido até parado.`,
+
+4: `De FORA pra DENTRO agora você ENTRA. Onde MÁQUINAS fazem barulho talvez a próxima pista RONQUE.`,
+
+5: `Banho ninguém toma aqui mas AQUI tem pista. Dos TRÊS banheiros desta casa ache o que fica mais SOZINHO.`,
+
+6: `Agora é hora de DESCANSAR Entre a lavanderia e o banheiro o quadro você encontrará Mas não olhe de longe o que procura está por trás da imagem.`,
+
+7: `Sente-se e ASSISTA. Subindo degrals a pista voce vai achar. Em video a senha verá.`,
+
+8: `Se uma sala é pra VER a outra é pra FAZER. Vá onde a comida se guarda.`,
+
+9: `A trilha volta pra casa vizinha. Descendo rolando voce encontra o caramelo. Junto à giselma ela revelará o mistério.`,
+
+10: `Quem DORME lá, sonha com gatos... um gato espanhol em breve terá um irmão.`,
+
+11: `Acabou? voce chegou fim? ou apenas comecamos?? volte ao inicio, não é gelado mas está mantido no cooler.`,
